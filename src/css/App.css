@@ -53,20 +53,6 @@ nav {
   color: black !important;
 }
 
-/* Signin */
-.box-input-signin {
-  display: block;
-  width: 45%;
-  margin-left: auto;
-  margin-right: auto;
-}
-.box-input-signin input {
-  color: #fff;
-}
-.btn-signin {
-  width: 45%;
-}
-
 /* Welcome */
 .movie-img img {
   height: 180px;
@@ -121,27 +107,7 @@ input[type="text"]:not(.browser-default):focus:not([readonly]) {
     0 10px 10px rgba(0, 0, 0, 0.22);
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
 }
-/* UserShow */
-.avatar {
-  vertical-align: middle;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-}
-.top-left {
-  position: absolute;
-  z-index: 1;
-  top: 8px;
-  left: 16px;
-}
 
-.avatar-card {
-  vertical-align: middle;
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  border: 2px solid #fff;
-}
 /* Movie Show */
 .box-cast {
   display: block;
@@ -164,12 +130,6 @@ input[type="text"]:not(.browser-default):focus:not([readonly]) {
   object-fit: cover;
 }
 
-@media only screen and (max-width: 600px) {
-  /* Signin Signup */
-  .box-input-signin {
-    width: 100%;
-  }
-  .btn-signin {
-    width: 100%;
-  }
+.box-shadow {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }

@@ -29,7 +29,18 @@ export interface MovieSearchState {
       order: number;
     }
   ];
-  similiarMovies: [];
+  actor: {
+    biography: string;
+    birthday: string;
+    deathday: string | null;
+    homepage: string;
+    id: number;
+    name: string;
+    place_of_birth: string;
+    popularity: number;
+    profile_path: string;
+  };
+  moviesWithActor: [];
   status: "idle" | "loading" | "failed";
 }
 
@@ -58,7 +69,18 @@ const initialState: MovieSearchState = {
       order: 0,
     },
   ],
-  similiarMovies: [],
+  actor: {
+    biography: "",
+    birthday: "",
+    deathday: "",
+    homepage: "",
+    id: 0,
+    name: "",
+    place_of_birth: "",
+    popularity: 0,
+    profile_path: "",
+  },
+  moviesWithActor: [],
   status: "idle",
 };
 
@@ -84,6 +106,28 @@ export const findMovieCast = createAsyncThunk(
   }
 );
 
+export const findCastDetail = createAsyncThunk(
+  "movieSearch/fetchCastDetail",
+  async (id: string | undefined) => {
+    const response = await axios.get(
+      `https://api.themoviedb.org/3/person/${id}?api_key=${key}&language=en-US`
+    );
+    // The value we return becomes the `fulfilled` action payload
+    return response.data;
+  }
+);
+
+export const findMoviesByActor = createAsyncThunk(
+  "movieSearch/fetchMoviesByActor",
+  async (id: string | undefined) => {
+    const response = await axios.get(
+      `https://api.themoviedb.org/3/person/${id}/movie_credits?api_key=${key}&language=en-US`
+    );
+    // The value we return becomes the `fulfilled` action payload
+    return response.data.cast;
+  }
+);
+
 export const movieSearchSlice = createSlice({
   name: "movieSearch",
   initialState,
@@ -91,7 +135,7 @@ export const movieSearchSlice = createSlice({
   reducers: {
     // Use the PayloadAction type to declare the contents of `action.payload`
     incrementByAmount: (state, action: PayloadAction<[]>) => {
-      state.similiarMovies = action.payload;
+      state.moviesWithActor = action.payload;
     },
   },
   // The `extraReducers` field lets the slice handle actions defined elsewhere,
@@ -116,6 +160,26 @@ export const movieSearchSlice = createSlice({
         state.cast = action.payload;
       })
       .addCase(findMovieCast.rejected, (state) => {
+        state.status = "failed";
+      })
+      .addCase(findCastDetail.pending, (state) => {
+        state.status = "loading";
+      })
+      .addCase(findCastDetail.fulfilled, (state, action) => {
+        state.status = "idle";
+        state.actor = action.payload;
+      })
+      .addCase(findCastDetail.rejected, (state) => {
+        state.status = "failed";
+      })
+      .addCase(findMoviesByActor.pending, (state) => {
+        state.status = "loading";
+      })
+      .addCase(findMoviesByActor.fulfilled, (state, action) => {
+        state.status = "idle";
+        state.moviesWithActor = action.payload;
+      })
+      .addCase(findMoviesByActor.rejected, (state) => {
         state.status = "failed";
       });
   },

@@ -22,11 +22,19 @@ export const MovieDetail: React.FC = () => {
 
   const renderImage = (poster: string) => {
     if (poster === null) {
-      return <img style={{ width: "100%" }} src={noPoster} alt="img" />;
+      return (
+        <img
+          className="box-shadow"
+          style={{ width: "100%", marginTop: "20px" }}
+          src={noPoster}
+          alt="img"
+        />
+      );
     } else {
       return (
         <img
-          style={{ width: "100%" }}
+          className="box-shadow"
+          style={{ width: "100%", marginTop: "20px" }}
           src={`https://image.tmdb.org/t/p/w500${poster}`}
           alt="img"
         />
