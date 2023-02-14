@@ -19,7 +19,6 @@ export const CastMember = () => {
   useEffect(() => {
     dispatch(findCastDetail(actorId));
     dispatch(findMoviesByActor(actorId));
-    // this.props.getMovieByActor(this.props.match.params.id);
   }, [actorId, dispatch]);
 
   const renderActor = () => {

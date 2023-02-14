@@ -5,9 +5,11 @@ import { useAppSelector, useAppDispatch } from "../app/hooks";
 import {
   findMovieCast,
   findMovieDetail,
+  findRecommendedMovies,
   selectMovie,
 } from "../features/movies/movieSearchSlice";
 import { CastSlider } from "../components/castSlider";
+import { MovieSmallSlider } from "../components/moviesSmallSlider";
 import noPoster from "../images/cinema.png";
 
 export const MovieDetail: React.FC = () => {
@@ -18,6 +20,7 @@ export const MovieDetail: React.FC = () => {
   useEffect(() => {
     dispatch(findMovieDetail(movieId));
     dispatch(findMovieCast(movieId));
+    dispatch(findRecommendedMovies(movieId));
   }, [movieId, dispatch]);
 
   const renderImage = (poster: string) => {
@@ -95,8 +98,10 @@ export const MovieDetail: React.FC = () => {
         </div>
         <CastSlider cast={data.cast} />
         <div>
-          <h5 style={{ fontStyle: "oblique" }}>If you like this</h5>
-          {/*  <SimularMovies /> */}
+          <h5 style={{ fontStyle: "oblique", marginTop: "30px" }}>
+            If you like this movie you may also like:
+          </h5>
+          <MovieSmallSlider movies={data.recommendations} />
         </div>
       </div>
     </>

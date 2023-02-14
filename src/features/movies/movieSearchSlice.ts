@@ -40,6 +40,7 @@ export interface MovieSearchState {
     popularity: number;
     profile_path: string;
   };
+  recommendations: [];
   moviesWithActor: [];
   status: "idle" | "loading" | "failed";
 }
@@ -80,6 +81,7 @@ const initialState: MovieSearchState = {
     popularity: 0,
     profile_path: "",
   },
+  recommendations: [],
   moviesWithActor: [],
   status: "idle",
 };
@@ -125,6 +127,17 @@ export const findMoviesByActor = createAsyncThunk(
     );
     // The value we return becomes the `fulfilled` action payload
     return response.data.cast;
+  }
+);
+
+export const findRecommendedMovies = createAsyncThunk(
+  "movieSearch/fetchRecommendedMovies",
+  async (id: string | undefined) => {
+    const response = await axios.get(
+      `https://api.themoviedb.org/3/movie/${id}/similar?api_key=${key}&language=en-US&page=1`
+    );
+    // The value we return becomes the `fulfilled` action payload
+    return response.data.results;
   }
 );
 
@@ -180,6 +193,16 @@ export const movieSearchSlice = createSlice({
         state.moviesWithActor = action.payload;
       })
       .addCase(findMoviesByActor.rejected, (state) => {
+        state.status = "failed";
+      })
+      .addCase(findRecommendedMovies.pending, (state) => {
+        state.status = "loading";
+      })
+      .addCase(findRecommendedMovies.fulfilled, (state, action) => {
+        state.status = "idle";
+        state.recommendations = action.payload;
+      })
+      .addCase(findRecommendedMovies.rejected, (state) => {
         state.status = "failed";
       });
   },
