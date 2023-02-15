@@ -3,6 +3,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { Link } from "react-router-dom";
 import { useGenProfilePic } from "../hooks/useGenProfilePic";
+import profile from "../images/no-pic/profile-10.png";
 
 interface SliderProps {
   cast: [
@@ -42,7 +43,9 @@ export const CastSlider: React.FC<SliderProps> = (props) => {
 
   const renderImage = (poster: string) => {
     if (!poster) {
-      return <img style={{ width: "100%" }} src={profilePic} alt="img" />;
+      return (
+        <img style={{ width: "100%" }} src={profilePic || profile} alt="img" />
+      );
     } else {
       return (
         <img

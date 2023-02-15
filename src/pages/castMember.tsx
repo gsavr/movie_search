@@ -4,9 +4,10 @@ import { useAppSelector, useAppDispatch } from "../app/hooks";
 import {
   findCastDetail,
   findMoviesByActor,
-  selectMovie,
-} from "../features/movies/movieSearchSlice";
+} from "../features/movies/moviesApi";
+import { selectMovie } from "../features/movies/movieSearchSlice";
 import { useGenProfilePic } from "../hooks/useGenProfilePic";
+import profile from "../images/no-pic/profile-8.png";
 import { MovieSmallSlider } from "../components/moviesSmallSlider";
 
 export const CastMember = () => {
@@ -57,7 +58,7 @@ export const CastMember = () => {
         <img
           className="box-shadow"
           style={{ width: "100%", marginTop: "20px" }}
-          src={profilePic}
+          src={profilePic || profile}
           alt="img"
         />
       );

@@ -1,10 +1,12 @@
 //import { Link } from "react-router-dom";
 import { MovieSlider } from "../components/slider";
+import { useAppSelector, useAppDispatch } from "../app/hooks";
 import {
-  useFetchGenreMoviesQuery,
-  useFetchNowPlayingQuery,
-} from "../features/movies/moviesApiSlice";
-import { useState } from "react";
+  findNowPlaying,
+  findMoviesByGenre,
+} from "../features/movies/moviesApi";
+import { selectMovie } from "../features/movies/movieSearchSlice";
+import { useEffect, useState } from "react";
 import { movieGenres } from "../components/genres";
 //import noPoster from "../images/cinema.png";
 //const M = require("materialize-css/dist/js/materialize.min.js");
@@ -12,20 +14,16 @@ import { movieGenres } from "../components/genres";
 export const Home: React.FC = () => {
   const [movie, setMovie] = useState("");
   const [genre, setGenre] = useState({ name: "Science Fiction", code: 878 });
+  const data = useAppSelector(selectMovie);
+  console.log(data);
+  const dispatch = useAppDispatch();
 
   const year = new Date().getFullYear();
 
-  const {
-    data = [],
-    /* refetch,
-      isFetching,
-      isSuccess,
-      isError, */
-  } = useFetchNowPlayingQuery();
-  const { data: { results } = [] } = useFetchGenreMoviesQuery({
-    genre,
-    year,
-  });
+  useEffect(() => {
+    dispatch(findNowPlaying());
+    dispatch(findMoviesByGenre(genre));
+  }, [dispatch, genre]);
 
   const handleType = (event: { target: { value: any } }) => {
     setMovie(event.target.value);
@@ -110,16 +108,16 @@ export const Home: React.FC = () => {
           <div style={{ padding: "20px 0px" }} className="row center">
             {/*   {renderListMovies()} */}
           </div>
-          {results ? (
+          {data.status !== "loading" ? (
             <div className="row">
               <h6>In Theaters Now:</h6>
-              <MovieSlider movies={data.results} />
+              <MovieSlider movies={data.moviesNowPlaying} />
               <br></br>
               <div className="row">{renderGenres()}</div>
               <h6>
                 The Best {genre.name} for {year}
               </h6>
-              <MovieSlider movies={results} />
+              <MovieSlider movies={data.moviesByGenre} />
             </div>
           ) : (
             ""

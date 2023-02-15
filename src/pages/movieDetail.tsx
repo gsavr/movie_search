@@ -6,8 +6,8 @@ import {
   findMovieCast,
   findMovieDetail,
   findRecommendedMovies,
-  selectMovie,
-} from "../features/movies/movieSearchSlice";
+} from "../features/movies/moviesApi";
+import { selectMovie } from "../features/movies/movieSearchSlice";
 import { CastSlider } from "../components/castSlider";
 import { MovieSmallSlider } from "../components/moviesSmallSlider";
 import noPoster from "../images/cinema.png";
