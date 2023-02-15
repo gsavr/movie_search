@@ -17,6 +17,14 @@ const initialState: MovieSearchState = {
   moviesNowPlaying: [],
   moviesTrending: [],
   moviesByGenre: [],
+  moviesAction: [],
+  moviesAnimation: [],
+  moviesComedy: [],
+  moviesDrama: [],
+  moviesFantasy: [],
+  moviesHorror: [],
+  moviesRomance: [],
+  moviesSciFi: [],
   moviesSearch: [],
   movie: {
     id: "",
@@ -100,7 +108,34 @@ export const movieSearchSlice = createSlice({
       })
       .addCase(findMoviesByGenre.fulfilled, (state, action) => {
         state.status = "idle";
-        state.moviesByGenre = action.payload;
+        switch (action.payload.genre) {
+          case 28:
+            state.moviesAction = action.payload.data;
+            break;
+          case 16:
+            state.moviesAnimation = action.payload.data;
+            break;
+          case 35:
+            state.moviesComedy = action.payload.data;
+            break;
+          case 18:
+            state.moviesDrama = action.payload.data;
+            break;
+          case 14:
+            state.moviesFantasy = action.payload.data;
+            break;
+          case 27:
+            state.moviesHorror = action.payload.data;
+            break;
+          case 10749:
+            state.moviesRomance = action.payload.data;
+            break;
+          case 878:
+            state.moviesSciFi = action.payload.data;
+            break;
+          default:
+            state.moviesByGenre = action.payload.data;
+        }
       })
       .addCase(findMoviesByGenre.rejected, (state) => {
         state.status = "failed";

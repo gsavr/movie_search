@@ -20,4 +20,14 @@ html {
     font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
       monospace;
   }
+  .arrowUp {
+    @apply h-6 w-6;
+  }
+
+  .scrollToTop-btn {
+    @apply fixed bottom-3 right-3 flex h-14 w-14 cursor-pointer items-center justify-center rounded-full border-none bg-[#81c9b0] bg-opacity-40 text-white hover:bg-[#6c897f] hover:text-slate-100 lg:bottom-14 lg:right-12;
+    z-index: 999;
+    font-size: 16px;
+    line-height: 48px;
+  }
 }

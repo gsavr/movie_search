@@ -36,7 +36,7 @@ export const findMoviesByGenre = createAsyncThunk(
       `https://api.themoviedb.org/3/discover/movie?api_key=${key}&language=en-US&with_genres=${genre.code}&primary_release_year=${year}`
     );
     // The value we return becomes the `fulfilled` action payload
-    return response.data.results;
+    return { data: response.data.results, genre: genre.code };
   }
 );
 

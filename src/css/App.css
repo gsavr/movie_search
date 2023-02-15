@@ -3,12 +3,12 @@ body {
   background: #5e5e5e; /* fallback for old browsers */
   background: -webkit-linear-gradient(
     to right,
-    #23333a,
+    #6c897f,
     #5e5e5e
   ); /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(
     to right,
-    #23333a,
+    #6c897f,
     #5e5e5e
   ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   color: #fff;
@@ -91,7 +91,7 @@ input[type="text"]:not(.browser-default):focus:not([readonly]) {
 .card-category {
   background-size: 100% 100%;
   background-position: center;
-  background-image: url("../images/background.jpg");
+  background-image: url("../images/background.png");
   height: 230px;
   display: flex;
   justify-content: center;

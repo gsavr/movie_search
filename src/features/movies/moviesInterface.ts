@@ -2,6 +2,14 @@ export interface MovieSearchState {
   moviesNowPlaying: [];
   moviesTrending: [];
   moviesByGenre: [];
+  moviesAction: [];
+  moviesAnimation: [];
+  moviesComedy: [];
+  moviesDrama: [];
+  moviesFantasy: [];
+  moviesHorror: [];
+  moviesRomance: [];
+  moviesSciFi: [];
   moviesSearch: [];
   movie: {
     id: string;

@@ -4,7 +4,7 @@ export const Header: React.FC = () => {
   return (
     <div>
       <nav>
-        <div className="nav-wrapper">
+        <div className="nav-wrapper bg-[#252c38] bg-opacity-50">
           <Link className="brand-logo row" to="/">
             <i className="large material-icons nav-icon">local_movies</i>
             <div

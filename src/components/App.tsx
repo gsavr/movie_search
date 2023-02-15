@@ -4,6 +4,8 @@ import { Header } from "../components/header";
 import { Home } from "../pages/home";
 import { MovieDetail } from "../pages/movieDetail";
 import { CastMember } from "../pages/castMember";
+import { StickyMenu } from "./sticky-menu";
+import { Footer } from "./footer";
 
 export const App: React.FC = () => {
   return (
@@ -14,6 +16,8 @@ export const App: React.FC = () => {
         <Route path="/movie/:movieId" element={<MovieDetail />} />
         <Route path="/cast/:actorId" element={<CastMember />} />
       </Routes>
+      <StickyMenu />
+      <Footer />
     </div>
   );
 };

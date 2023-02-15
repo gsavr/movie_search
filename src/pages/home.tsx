@@ -3,29 +3,33 @@ import { useAppSelector, useAppDispatch } from "../app/hooks";
 import {
   findNowPlaying,
   findTrendingMovies,
-  findMoviesByGenre,
   findMoviesBySearch,
+  findMoviesByGenre,
 } from "../features/movies/moviesApi";
 import { selectMovie, clearSearch } from "../features/movies/movieSearchSlice";
 import { MovieSlider } from "../components/movieslider";
 import { MovieSmallSlider } from "../components/moviesSmallSlider";
+import { GenreLists } from "../components/genreLists";
 import { movieGenres } from "../components/genres";
-//const M = require("materialize-css/dist/js/materialize.min.js");
 
 export const Home: React.FC = () => {
   const [movieSearch, setMovieSearch] = useState("");
-  const [genre, setGenre] = useState({ name: "Science Fiction", code: 878 });
   const data = useAppSelector(selectMovie);
-  console.log(data);
-  const dispatch = useAppDispatch();
 
-  const year = new Date().getFullYear();
+  const dispatch = useAppDispatch();
 
   useEffect(() => {
     dispatch(findNowPlaying());
     dispatch(findTrendingMovies());
-    dispatch(findMoviesByGenre(genre));
-  }, [dispatch, genre]);
+    dispatch(findMoviesByGenre(movieGenres[0]));
+    dispatch(findMoviesByGenre(movieGenres[1]));
+    dispatch(findMoviesByGenre(movieGenres[2]));
+    dispatch(findMoviesByGenre(movieGenres[3]));
+    dispatch(findMoviesByGenre(movieGenres[4]));
+    dispatch(findMoviesByGenre(movieGenres[5]));
+    dispatch(findMoviesByGenre(movieGenres[6]));
+    dispatch(findMoviesByGenre(movieGenres[7]));
+  }, [dispatch]);
 
   const onSearchTyping = (event: { target: { value: string } }) => {
     setMovieSearch(event.target.value);
@@ -35,21 +39,6 @@ export const Home: React.FC = () => {
     event.preventDefault();
     dispatch(findMoviesBySearch(movieSearch));
     setMovieSearch("");
-  };
-
-  const renderGenres = () => {
-    return movieGenres.map((type) => {
-      return (
-        <button
-          className="btn blue-grey lighten-2 flow-text"
-          style={{ color: "black", fontSize: ".8rem", margin: "2px" }}
-          key={type.code}
-          onClick={(e) => setGenre(type)}
-        >
-          {type.name}
-        </button>
-      );
-    });
   };
 
   return (
@@ -117,11 +106,9 @@ export const Home: React.FC = () => {
               <br></br>
               <br />
               <br />
-              <div className="row center">{renderGenres()}</div>
-              <h6>
-                The Best {genre.name} for {year}
-              </h6>
-              <MovieSlider movies={data.moviesByGenre} />
+              <div>
+                <GenreLists data={data} />
+              </div>
             </div>
           ) : (
             ""
