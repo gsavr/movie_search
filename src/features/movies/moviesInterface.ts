@@ -1,6 +1,8 @@
 export interface MovieSearchState {
   moviesNowPlaying: [];
+  moviesTrending: [];
   moviesByGenre: [];
+  moviesSearch: [];
   movie: {
     id: string;
     genres: [{ name: string }];

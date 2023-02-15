@@ -90,7 +90,7 @@ export const MovieDetail: React.FC = () => {
   };
 
   return (
-    <>
+    <div className="app">
       <div className="container">
         {renderMovie()}
         <div>
@@ -104,6 +104,6 @@ export const MovieDetail: React.FC = () => {
           <MovieSmallSlider movies={data.recommendations} />
         </div>
       </div>
-    </>
+    </div>
   );
 };

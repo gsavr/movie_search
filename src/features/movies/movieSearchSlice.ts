@@ -3,7 +3,9 @@ import { RootState } from "../../app/store";
 import { MovieSearchState } from "./moviesInterface";
 import {
   findNowPlaying,
+  findTrendingMovies,
   findMoviesByGenre,
+  findMoviesBySearch,
   findMovieDetail,
   findMovieCast,
   findCastDetail,
@@ -13,7 +15,9 @@ import {
 
 const initialState: MovieSearchState = {
   moviesNowPlaying: [],
+  moviesTrending: [],
   moviesByGenre: [],
+  moviesSearch: [],
   movie: {
     id: "",
     genres: [{ name: "" }],
@@ -60,8 +64,8 @@ export const movieSearchSlice = createSlice({
   // The `reducers` field lets us define reducers and generate associated actions
   reducers: {
     // Use the PayloadAction type to declare the contents of `action.payload`
-    incrementByAmount: (state, action: PayloadAction<[]>) => {
-      state.moviesWithActor = action.payload;
+    clearSearch: (state, action: PayloadAction<[]>) => {
+      state.moviesSearch = action.payload;
     },
   },
   // The `extraReducers` field lets the slice handle actions defined elsewhere,
@@ -79,6 +83,17 @@ export const movieSearchSlice = createSlice({
       .addCase(findNowPlaying.rejected, (state) => {
         state.status = "failed";
       })
+      //findTrendingMovies
+      .addCase(findTrendingMovies.pending, (state) => {
+        state.status = "loading";
+      })
+      .addCase(findTrendingMovies.fulfilled, (state, action) => {
+        state.status = "idle";
+        state.moviesTrending = action.payload;
+      })
+      .addCase(findTrendingMovies.rejected, (state) => {
+        state.status = "failed";
+      })
       //findMoviesByGenre
       .addCase(findMoviesByGenre.pending, (state) => {
         state.status = "loading";
@@ -90,7 +105,18 @@ export const movieSearchSlice = createSlice({
       .addCase(findMoviesByGenre.rejected, (state) => {
         state.status = "failed";
       })
-      // findMoviesByGenre
+      //findMoviesBySearch
+      .addCase(findMoviesBySearch.pending, (state) => {
+        state.status = "loading";
+      })
+      .addCase(findMoviesBySearch.fulfilled, (state, action) => {
+        state.status = "idle";
+        state.moviesSearch = action.payload;
+      })
+      .addCase(findMoviesBySearch.rejected, (state) => {
+        state.status = "failed";
+      })
+      // findMovieDetail
       .addCase(findMovieDetail.pending, (state) => {
         state.status = "loading";
       })
@@ -153,6 +179,6 @@ export const movieSearchSlice = createSlice({
 // in the slice file. For example: `useSelector((state: RootState) => state.counter.value)`
 export const selectMovie = (state: RootState) => state.movieSearch;
 
-export const { incrementByAmount } = movieSearchSlice.actions;
+export const { clearSearch } = movieSearchSlice.actions;
 
 export default movieSearchSlice.reducer;

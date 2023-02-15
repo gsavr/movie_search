@@ -75,12 +75,14 @@ export const CastMember = () => {
   };
 
   return (
-    <div className="container">
-      {renderActor()}
-      <h5 style={{ fontStyle: "oblique" }}>
-        Additional movies with {data.actor.name}
-      </h5>
-      <MovieSmallSlider movies={data.moviesWithActor} />
+    <div className="app">
+      <div className="container">
+        {renderActor()}
+        <h5 style={{ fontStyle: "oblique" }}>
+          Films featuring {data.actor.name}
+        </h5>
+        <MovieSmallSlider movies={data.moviesWithActor} />
+      </div>
     </div>
   );
 };

@@ -1,26 +1,18 @@
-# WIKI MOVIE
+# MOVIE SEARCH
 
-Using a single API (TMDB), this app offers easy access to deeper details into shows and movies with regards to their cast, their plot, reviews, and other information that gives you a wealth of context.
+Using a single API (TMDB), this app offers easy access to deeper details into movies with regards to their cast, plot, reviews, and other information that gives you a wealth of context.
 
 **Preview**
 
-![](wiki.gif)
+![](movie-search.gif)
 
 **Technologies Used**
-
-**Backend**
-
-- node
-- npm
-- express
-- axios
-- ...
 
 **Front-End**
 
 - react
-- redux
-- redux-thunk
+- redux-toolkit
+- redux-query
 - react-router-dom
 - react-slick
 - materialize-css

@@ -7,7 +7,7 @@ import { CastMember } from "../pages/castMember";
 
 export const App: React.FC = () => {
   return (
-    <div className="app">
+    <div>
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
