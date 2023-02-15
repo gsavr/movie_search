@@ -23,6 +23,7 @@ export const CastMember = () => {
 
   const renderActor = () => {
     const actor = data.actor;
+    console.log(actor.birthday);
 
     return (
       <div className="row" key={actor.id}>
@@ -46,7 +47,7 @@ export const CastMember = () => {
   };
 
   const renderDate = (date: string) => {
-    let newDate = new Date(date);
+    let newDate = new Date(`${date}T10:12:50`);
     return newDate.toDateString();
   };
 

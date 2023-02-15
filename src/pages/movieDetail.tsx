@@ -71,7 +71,7 @@ export const MovieDetail: React.FC = () => {
   };
 
   const renderDate = (date: string) => {
-    let newDate = new Date(date);
+    let newDate = new Date(`${date}T10:12:50`);
     return newDate.toDateString();
   };
 

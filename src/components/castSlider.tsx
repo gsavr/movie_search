@@ -70,7 +70,7 @@ export const CastSlider: React.FC<SliderProps> = (props) => {
         breakpoint: 900,
         settings: {
           slidesToShow: 5,
-          slidesToScroll: 5,
+          slidesToScroll: 1,
           dots: false,
         },
       },
@@ -78,7 +78,7 @@ export const CastSlider: React.FC<SliderProps> = (props) => {
         breakpoint: 500,
         settings: {
           slidesToShow: 3,
-          slidesToScroll: 3,
+          slidesToScroll: 1,
           dots: false,
         },
       },
@@ -90,7 +90,7 @@ export const CastSlider: React.FC<SliderProps> = (props) => {
         dots
         arrows
         infinite
-        speed={900}
+        speed={200}
         slidesToShow={7}
         slidesToScroll={7}
         swipeToSlide

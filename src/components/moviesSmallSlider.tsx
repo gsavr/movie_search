@@ -26,7 +26,7 @@ export const MovieSmallSlider: React.FC<SliderProps> = (props) => {
         breakpoint: 900,
         settings: {
           slidesToShow: 6,
-          slidesToScroll: 6,
+          slidesToScroll: 1,
           dots: false,
         },
       },
@@ -34,7 +34,7 @@ export const MovieSmallSlider: React.FC<SliderProps> = (props) => {
         breakpoint: 500,
         settings: {
           slidesToShow: 4,
-          slidesToScroll: 4,
+          slidesToScroll: 1,
           dots: false,
         },
       },
@@ -81,9 +81,9 @@ export const MovieSmallSlider: React.FC<SliderProps> = (props) => {
         dots
         arrows
         infinite
-        speed={900}
+        speed={200}
         slidesToShow={8}
-        slidesToScroll={8}
+        slidesToScroll={6}
         swipeToSlide
         {...settings}
       >
