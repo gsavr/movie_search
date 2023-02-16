@@ -58,7 +58,7 @@ export const findMovieDetail = createAsyncThunk(
       `https://api.themoviedb.org/3/movie/${id}?api_key=${key}&language=en-US`
     );
     // The value we return becomes the `fulfilled` action payload
-    return response.data.slice(0, 10);
+    return response.data;
   }
 );
 

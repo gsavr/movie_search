@@ -2,7 +2,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { Link } from "react-router-dom";
-import noPoster from "../images/cinema.png";
+import noPoster from "../images/cinema.svg";
 
 interface SliderProps {
   movies: [];

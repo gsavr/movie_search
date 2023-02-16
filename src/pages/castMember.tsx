@@ -6,8 +6,7 @@ import {
   findMoviesByActor,
 } from "../features/movies/moviesApi";
 import { selectMovie } from "../features/movies/movieSearchSlice";
-import { useGenProfilePic } from "../hooks/useGenProfilePic";
-import profile from "../images/no-pic/profile-8.png";
+import profile from "../images/profile.svg";
 import { MovieSmallSlider } from "../components/moviesSmallSlider";
 
 export const CastMember = () => {
@@ -15,7 +14,6 @@ export const CastMember = () => {
   const data = useAppSelector(selectMovie);
   console.log(data);
   const dispatch = useAppDispatch();
-  const profilePic = useGenProfilePic();
 
   useEffect(() => {
     dispatch(findCastDetail(actorId));
@@ -58,7 +56,7 @@ export const CastMember = () => {
         <img
           className="box-shadow"
           style={{ width: "100%", marginTop: "20px" }}
-          src={profilePic || profile}
+          src={profile}
           alt="img"
         />
       );

@@ -4,16 +4,15 @@ import {
   findNowPlaying,
   findTrendingMovies,
   findMoviesBySearch,
-  findMoviesByGenre,
 } from "../features/movies/moviesApi";
 import { selectMovie, clearSearch } from "../features/movies/movieSearchSlice";
 import { MovieSlider } from "../components/movieslider";
 import { MovieSmallSlider } from "../components/moviesSmallSlider";
 import { GenreLists } from "../components/genreLists";
-import { movieGenres } from "../components/genres";
 
 export const Home: React.FC = () => {
   const [movieSearch, setMovieSearch] = useState("");
+  const [genre, setGenre] = useState({ name: "", code: 0, link: "" });
   const data = useAppSelector(selectMovie);
 
   const dispatch = useAppDispatch();
@@ -21,14 +20,6 @@ export const Home: React.FC = () => {
   useEffect(() => {
     dispatch(findNowPlaying());
     dispatch(findTrendingMovies());
-    /*  dispatch(findMoviesByGenre(movieGenres[0]));
-    dispatch(findMoviesByGenre(movieGenres[1]));
-    dispatch(findMoviesByGenre(movieGenres[2]));
-    dispatch(findMoviesByGenre(movieGenres[3]));
-    dispatch(findMoviesByGenre(movieGenres[4]));
-    dispatch(findMoviesByGenre(movieGenres[5]));
-    dispatch(findMoviesByGenre(movieGenres[6]));
-    dispatch(findMoviesByGenre(movieGenres[7])); */
   }, [dispatch]);
 
   const onSearchTyping = (event: { target: { value: string } }) => {
@@ -98,6 +89,14 @@ export const Home: React.FC = () => {
           </div>
           {data.status !== "loading" ? (
             <div className="row">
+              <div>
+                <GenreLists
+                  data={data}
+                  genre={genre}
+                  setGenre={setGenre}
+                  dispatch={dispatch}
+                />
+              </div>
               <h6>In Theaters Now:</h6>
               <MovieSlider movies={data.moviesNowPlaying} />
               <br></br>
@@ -106,9 +105,6 @@ export const Home: React.FC = () => {
               <br></br>
               <br />
               <br />
-              <div>
-                <GenreLists data={data} />
-              </div>
             </div>
           ) : (
             ""
