@@ -6,6 +6,3 @@ services:
       - .:/app
     ports:
       - 3000:3000
-    image: web:latest
-    container_name: gs-movie-search
-    command: npm start
