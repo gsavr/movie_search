@@ -4,7 +4,7 @@ import { Header } from "../components/header";
 import { Home } from "../pages/home";
 import { MovieDetail } from "../pages/movieDetail";
 import { CastMember } from "../pages/castMember";
-//import { StickyMenu } from "./stickyMenu";
+import { StickyMenu } from "./stickyMenu";
 import { Footer } from "./footer";
 
 export const App: React.FC = () => {
@@ -16,7 +16,7 @@ export const App: React.FC = () => {
         <Route path="/movie/:movieId" element={<MovieDetail />} />
         <Route path="/cast/:actorId" element={<CastMember />} />
       </Routes>
-      {/* <StickyMenu /> */}
+      <StickyMenu />
       <Footer />
     </div>
   );
