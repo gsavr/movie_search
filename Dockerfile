@@ -1,8 +1,8 @@
 FROM node:alpine
 
-WORKDIR /movie-search
+ADD . /opt/webapp/
+WORKDIR /opt/webapp/
 
-COPY . .
 
 RUN npm install
 
