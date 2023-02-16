@@ -2,10 +2,13 @@ FROM node:alpine
 
 WORKDIR /movie-search
 
-ENV PATH="./node_modules/.bin:$PATH"
-
 COPY . .
 
+RUN npm install
+
 RUN npm run build
+
+RUN adduser -D myuser
+USER myuser
 
 CMD ["npm", "start"]
