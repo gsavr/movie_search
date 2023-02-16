@@ -21,14 +21,14 @@ export const Home: React.FC = () => {
   useEffect(() => {
     dispatch(findNowPlaying());
     dispatch(findTrendingMovies());
-    dispatch(findMoviesByGenre(movieGenres[0]));
+    /*  dispatch(findMoviesByGenre(movieGenres[0]));
     dispatch(findMoviesByGenre(movieGenres[1]));
     dispatch(findMoviesByGenre(movieGenres[2]));
     dispatch(findMoviesByGenre(movieGenres[3]));
     dispatch(findMoviesByGenre(movieGenres[4]));
     dispatch(findMoviesByGenre(movieGenres[5]));
     dispatch(findMoviesByGenre(movieGenres[6]));
-    dispatch(findMoviesByGenre(movieGenres[7]));
+    dispatch(findMoviesByGenre(movieGenres[7])); */
   }, [dispatch]);
 
   const onSearchTyping = (event: { target: { value: string } }) => {
