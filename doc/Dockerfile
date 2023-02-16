@@ -3,9 +3,6 @@ FROM node:alpine
 ADD . /opt/webapp/
 WORKDIR /opt/webapp/
 
-
-RUN npm install
-
 RUN npm run build
 
 RUN adduser -D myuser
