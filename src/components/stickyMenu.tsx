@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
 import { Link } from "react-scroll";
 
 export const StickyMenu: React.FC = () => {
@@ -34,24 +33,12 @@ export const StickyMenu: React.FC = () => {
   );
 
   return (
-    <AnimatePresence>
+    <>
       {scrollPosition > 425 && (
         <Link to="app">
-          <motion.button
-            className="scrollToTop-btn"
-            initial={{ y: 100, opacity: 0 }}
-            animate={{ y: 0, opacity: 1, transition: { duration: 0.6 } }}
-            exit={{ y: 100, opacity: 0, transition: { duration: 0.6 } }}
-            whileHover={{
-              scale: 1.1,
-              transition: { duration: 0.2 },
-            }}
-            whileTap={{ scale: 1 }}
-          >
-            {arrowUp}
-          </motion.button>
+          <button className="scrollToTop-btn">{arrowUp}</button>
         </Link>
       )}
-    </AnimatePresence>
+    </>
   );
 };
