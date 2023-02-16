@@ -38,42 +38,42 @@ export const GenreLists: React.FC<GenreListsProps> = (props) => {
         case 28:
           return (
             <div key={type.code}>
-              <h6 id={type.link}>{type.name} to watch</h6>
+              <h6 id={type.link}>{type.name}</h6>
               <MovieSlider movies={data.moviesAction} />
             </div>
           );
         case 16:
           return (
             <div key={type.code}>
-              <h6 id={type.link}>{type.name} to watch</h6>
+              <h6 id={type.link}>{type.name}</h6>
               <MovieSlider movies={data.moviesAnimation} />
             </div>
           );
         case 35:
           return (
             <div key={type.code}>
-              <h6 id={type.link}>{type.name} to watch</h6>
+              <h6 id={type.link}>{type.name}</h6>
               <MovieSlider movies={data.moviesComedy} />
             </div>
           );
         case 18:
           return (
             <div key={type.code}>
-              <h6 id={type.link}>{type.name} to watch</h6>
+              <h6 id={type.link}>{type.name}</h6>
               <MovieSlider movies={data.moviesDrama} />
             </div>
           );
         case 14:
           return (
             <div key={type.code}>
-              <h6 id={type.link}>{type.name} to watch</h6>
+              <h6 id={type.link}>{type.name}</h6>
               <MovieSlider movies={data.moviesFantasy} />
             </div>
           );
         case 27:
           return (
             <div key={type.code}>
-              <h6 id={type.link}>{type.name} to watch</h6>
+              <h6 id={type.link}>{type.name}</h6>
               <MovieSlider movies={data.moviesHorror} />
             </div>
           );
@@ -81,14 +81,14 @@ export const GenreLists: React.FC<GenreListsProps> = (props) => {
         case 10749:
           return (
             <div key={type.code}>
-              <h6 id={type.link}>{type.name} to watch</h6>
+              <h6 id={type.link}>{type.name}</h6>
               <MovieSlider movies={data.moviesRomance} />
             </div>
           );
         case 878:
           return (
             <div key={type.code}>
-              <h6 id={type.link}>{type.name} to watch</h6>
+              <h6 id={type.link}>{type.name}</h6>
               <MovieSlider movies={data.moviesSciFi} />
             </div>
           );
