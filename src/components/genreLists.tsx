@@ -111,7 +111,7 @@ export const GenreLists: React.FC<GenreListsProps> = (props) => {
             style={{ color: "black", fontSize: ".8rem", margin: "2px" }}
             onClick={() => setGenre({ name: "", code: 0, link: "" })}
           >
-            dismiss {genre.name}
+            ----- dismiss ------
           </button>
         )}
       </div>

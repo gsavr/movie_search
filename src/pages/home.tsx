@@ -30,6 +30,7 @@ export const Home: React.FC = () => {
     event.preventDefault();
     dispatch(findMoviesBySearch(movieSearch));
     setMovieSearch("");
+    setGenre({ name: "", code: 0, link: "" });
   };
 
   return (
