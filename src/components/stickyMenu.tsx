@@ -4,7 +4,6 @@ import { Link } from "react-scroll";
 
 export const StickyMenu: React.FC = () => {
   const [scrollPosition, setScrollPosition] = useState(0);
-  console.log(scrollPosition);
 
   useEffect(() => {
     const updatePosition = () => {

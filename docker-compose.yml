@@ -1,0 +1,12 @@
+version: "3.8"
+services:
+  app:
+    build:
+      context: .
+    volumes:
+      - .:/client
+    ports:
+      - 3000:3000
+    image: gs-movie-search:latest
+    container_name: gs-movie-search
+    command: npm start

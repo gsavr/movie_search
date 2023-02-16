@@ -4,12 +4,12 @@ import { Header } from "../components/header";
 import { Home } from "../pages/home";
 import { MovieDetail } from "../pages/movieDetail";
 import { CastMember } from "../pages/castMember";
-import { StickyMenu } from "./sticky-menu";
+import { StickyMenu } from "./stickyMenu";
 import { Footer } from "./footer";
 
 export const App: React.FC = () => {
   return (
-    <div>
+    <div className="min-h-screen">
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
