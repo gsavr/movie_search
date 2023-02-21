@@ -1,4 +1,4 @@
-export const Footer = () => {
+export const Footer: React.FC = () => {
   return (
     <footer className="bg-[#252c38] text-white sticky top-[100vh]">
       <div className="container relative mx-auto px-5 pb-10 pt-12">

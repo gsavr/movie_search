@@ -9,7 +9,7 @@ import { selectMovie } from "../features/movies/movieSearchSlice";
 import profile from "../images/profile.svg";
 import { MovieSmallSlider } from "../components/moviesSmallSlider";
 
-export const CastMember = () => {
+export const CastMember: React.FC = () => {
   let { actorId } = useParams();
   const data = useAppSelector(selectMovie);
   console.log(data);
