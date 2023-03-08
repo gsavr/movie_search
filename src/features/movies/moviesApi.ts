@@ -13,7 +13,7 @@ export const findNowPlaying = createAsyncThunk(
       `https://api.themoviedb.org/3/movie/now_playing?api_key=${key}&language=en-US&page=${page}`
     );
     // The value we return becomes the `fulfilled` action payload
-    return response.data.results.slice(0, 10);
+    return response.data.results.slice(0, 20);
   }
 );
 
@@ -25,7 +25,7 @@ export const findTrendingMovies = createAsyncThunk(
       `https://api.themoviedb.org/3/trending/movie/week?api_key=${key}`
     );
     // The value we return becomes the `fulfilled` action payload
-    return response.data.results.slice(0, 10);
+    return response.data.results.slice(0, 20);
   }
 );
 
@@ -36,7 +36,7 @@ export const findMoviesByGenre = createAsyncThunk(
       `https://api.themoviedb.org/3/discover/movie?api_key=${key}&language=en-US&with_genres=${genre.code}&primary_release_year=${year}`
     );
     // The value we return becomes the `fulfilled` action payload
-    return { data: response.data.results.slice(0, 10), genre: genre.code };
+    return { data: response.data.results.slice(0, 15), genre: genre.code };
   }
 );
 
@@ -47,7 +47,7 @@ export const findMoviesBySearch = createAsyncThunk(
       `https://api.themoviedb.org/3/search/movie?api_key=${key}&language=en-US&query=${movie}&page=1&include_adult=false`
     );
     // The value we return becomes the `fulfilled` action payload
-    return response.data.results.slice(0, 10);
+    return response.data.results.slice(0, 15);
   }
 );
 
@@ -91,7 +91,7 @@ export const findMoviesByActor = createAsyncThunk(
       `https://api.themoviedb.org/3/person/${id}/movie_credits?api_key=${key}&language=en-US`
     );
     // The value we return becomes the `fulfilled` action payload
-    return response.data.cast.slice(0, 10);
+    return response.data.cast.slice(0, 15);
   }
 );
 
