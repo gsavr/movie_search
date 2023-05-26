@@ -20,7 +20,8 @@ body {
   width: 100vw;
   max-width: 100%;
   overflow-x: hidden;
-  overflow-y: scroll;
+  overflow-y: hidden;
+  flex-grow: 1;
 }
 input,
 input[type="text"]:not(.browser-default).validate + label,
