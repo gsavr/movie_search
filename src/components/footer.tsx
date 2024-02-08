@@ -10,7 +10,7 @@ export const Footer: React.FC = () => {
         <div className="flex flex-col items-center justify-between space-y-12 md:flex-row md:space-y-0">
           <div className="mt-20">
             <div className="flex  space-x-3 md:-mt-6">
-              <div>&copy; 2023 Giorgio Savron</div>
+              <div>&copy; 2024, Giorgio Savron Development</div>
             </div>
           </div>
           {/*  Social  */}
